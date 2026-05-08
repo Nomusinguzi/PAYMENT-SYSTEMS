@@ -1,12 +1,32 @@
 import users
 
-print(users.users)
-print(users.balances)
-
 from users import balances
 from transactions import send_money, transactions
 
-send_money(balances, "Ciara", "Calvin", 20000)
-send_money(balances, "Lisa", "Jerry", 15000)
-print(balances)
-print(transactions)
+print("MINI PAYMENT SYSTEM")
+
+while True:
+    print("\n1. Send Money")
+    print("2. View Transactions")
+    print("3. Exit")
+
+    choice = input("Choose option: ")
+
+    if choice == "1":
+        sender = input("Sender:")
+        receiver = input("Receiver:")
+        amount = int(input("Amount:"))
+
+        send_money(balances, sender, receiver, amount)
+
+    elif choice == "2":
+        print("\nTransaction History:")
+        for t in transactions:
+            print(t)
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid option.")
+
